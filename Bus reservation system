@@ -1,0 +1,31 @@
+void a::reservation()
+{
+int busseat;
+char no[5];
+top:
+cout<<"Bus Number: ";
+cin>>no;
+int y;
+for(y=0;y<=t;y++)
+{
+if(strcmp(bus[y].busnumber, no)==0) break;
+}
+while(y<=t)
+{
+cout<<"\nSeat Number: ";
+ cin>>busseat;
+ if(busseat>32) 
+   { cout<<"\nThere are only 32 Seats Available in this Bus."; }
+else 
+{
+  if (strcmp(bus[y].busseat[busseat/4][(busseat%4)-1], "Empty")==0)
+   { cout<<"Enter Passenger's Name: "; 
+     cin>>bus[y].busseat[busseat/4][(busseat%4)-1]; 
+     break;
+   } 
+else
+   { cout<<"The Seat Number. is Already Reserved.\n"; } } 
+if(y>t)
+ { cout<<"Enter Correct Bus Number.\n"; 
+goto top; }
+}
